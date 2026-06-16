@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edukids Arthur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;1,400&family=Righteous&display=swap">
+  <link rel="stylesheet" href="basico.css">
+  <link rel="stylesheet" href="exercicio.css">
+  <script src="jogo.js" defer></script>
+
+  <!-- ícones para dispositivos móveis -->
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+  <!-- configurações para dispositivos móveis -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="msapplication-TileColor" content="#907C73">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#907C73">
+
+  <!-- registro do service worker para instalação como PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+
+  <!-- configuração para compartilhamento em aplicativos -->
+  <meta name="title" content="Edukids Arthur">
+  <meta name="description" content="Um jogo para entreter irmãos e irmãs pequenininhos">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tuzindasidea.github.io/cefet-front-end-edukids/">
+  <meta property="og:title" content="Edukids Arthur">
+  <meta property="og:description" content="Um jogo para entreter irmãos e irmãs pequenininhos">
+  <meta property="og:image" content="https://tuzindasidea.github.io/cefet-front-end-edukids/favicon/android-icon-512x512.png">
+
+  <!-- X (Twitter) -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tuzindasidea.github.io/cefet-front-end-edukids/">
+  <meta property="twitter:title" content="Edukids Arthur">
+  <meta property="twitter:description" content="Um jogo para entreter irmãos e irmãs pequenininhos">
+  <meta property="twitter:image" content="https://tuzindasidea.github.io/cefet-front-end-edukids/favicon/android-icon-512x512.png">
+</head>
+<body>
+  <header id="cabecalho">
+    <h1>Edukids Arthur</h1>
+    <h2>Entretendo suas crianças <span class="requer-tela-media">na Web</span></h2>
+    <div id="pontuacao">0</div>
+  </header>
+  <nav id="controles">
+    <ul>
+      <li class="item" id="comecar"><span class="texto">Começar</span> <span class="icone"><span class="icone comecar"></span></div></li>
+      <li class="item" id="parar"><span class="texto">Parar</span> <span class="icone"><span class="icone parar"></span></div></li>
+    </ul>
+  </nav>
+  <div id="comando">Peixe!</div>
+  <main id="conteudo">
+    <div class="container-animal">
+      <img src="imgs/desconhecido.jpg" alt="" class="animal">
+    </div>
+    <div class="container-animal">
+      <img src="imgs/desconhecido.jpg" alt="" class="animal">
+    </div>
+    <div class="container-animal">
+      <img src="imgs/desconhecido.jpg" alt="" class="animal">
+    </div>
+    <div class="container-animal">
+      <img src="imgs/desconhecido.jpg" alt="" class="animal">
+    </div>
+    <div class="container-animal">
+      <img src="imgs/desconhecido.jpg" alt="" class="animal">
+    </div>
+    <div class="container-animal">
+      <img src="imgs/desconhecido.jpg" alt="" class="animal">
+    </div>
+  </main>
+  <section id="info">Divirta-se! Não se esqueça de ir ao banheiro, comer e beber água.</section>
+</body>
+</html>

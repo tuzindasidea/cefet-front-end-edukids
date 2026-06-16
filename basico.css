@@ -1,0 +1,283 @@
+/*
+ * Você não deve editar este arquivo. Use exercicio.css
+ */
+
+/* -----------------------------------------
+ * Elementos gerais
+ */
+
+body {
+  height: 100dvh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -----------------------------------------
+ * Cabeçalho
+ */
+
+#cabecalho {
+  position: relative;
+  padding: 10px 10px 42px;
+  background-color: #000;
+  background-image: url(imgs/absurdity.png), linear-gradient(to right, #6F92CC, #4e84e0);
+  border-bottom: 1px solid #6F92CC;
+  box-shadow: 0 2px 2px silver;
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  #cabecalho {
+    text-align: center;
+  }
+}
+
+#cabecalho h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+#cabecalho h2 {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+}
+
+@media (max-width: 400px) {
+  #cabecalho h2 .requer-tela-media {
+    display: none;
+  }
+}
+
+#pontuacao {
+  position: absolute;
+  width: 2em;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+  color: darksalmon;
+  font-size: 2em;
+  padding: 0 .4em;
+  border-radius: 17px 17px 0 0;
+  box-shadow: inset 0 2px 2px 0 silver;
+}
+
+#pontuacao.negativa {
+  color: crimson;
+}
+
+#pontuacao.positiva {
+  color: limegreen;
+}
+
+/* -----------------------------------------
+ * Menu do jogo
+ */
+
+#controles {
+  position: fixed;
+  top: 50%;
+  margin-top: -30px;
+  height: 60px;
+  z-index: 100;
+}
+
+.item {
+  height: 38px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  border: 2px solid #000;
+  border-bottom-style: none;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: #555;
+  }
+
+  &:active {
+    background-color: #777;
+  }
+}
+
+.item > .texto {
+  margin: 3px 0;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.item:first-of-type {
+  border-top-right-radius: 6px;
+}
+
+.item:last-of-type {
+  border-bottom: 2px solid #000;
+  border-bottom-right-radius: 6px;
+}
+
+.item>.icone {
+  height: 100%;
+  background-color: #555;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.comecar, 
+.parar {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comecar {
+  background-image: url('imgs/icone-comecar.png');
+}
+
+.parar {
+  background-image: url('imgs/icone-parar.png');
+}
+
+/* -----------------------------------------
+ * Região do conteúdo
+ */
+
+#comando {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -90px;
+  margin-top: -15px;
+  width: 180px;
+  height: 30px;
+  border: 3px solid goldenrod;
+  border-radius: 10px;
+  padding: 5px 8px;
+  background-color: rgba(255, 255, 255, .8);
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 1;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#comando.visivel {
+  visibility: visible;
+}
+
+#conteudo {
+  flex: 1;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: clamp(6px, 1.6vmin, 14px);
+  padding: clamp(6px, 1.6vmin, 14px);
+  min-height: 0;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+}
+
+
+@media (max-width: 640px) {
+  #conteudo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+.container-animal {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animal {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  object-fit: cover;
+  border: 2px solid #fff;
+  background-color: #fff;
+  transition: border-color 250ms ease-out;
+}
+
+.animal:not(.satisfeito):not(.foi-incomodado):not(.atacando):hover {
+  border-color: silver;
+}
+
+/* -----------------------------------------
+ * Rodapé
+ */
+
+#info {
+  padding: 15px;
+  background-image: url(imgs/binding-dark.png), linear-gradient(to right, #1ca01c, #2ce12c);
+  border-top: 1px solid #2e9308;
+  color: #fff;
+}
+
+
+
+/* Em telas bem largas, reduzir a altura do cabeçalho e rodapé para que os
+  * animais fiquem mais visíveis
+  */
+@media (min-aspect-ratio: 16/8) {
+  #cabecalho {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 5px 10px 0px;
+  }
+
+  #pontuacao {
+    margin: 0 1rem 0 auto;
+  }
+
+  #conteudo {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: 1fr;    
+  }
+
+  #controles {
+    top: auto;
+    bottom: 80px;
+  }
+
+  #info {
+    padding: 5px 15px;
+  }
+}
+
+@media (min-aspect-ratio: 16/7) {
+  #cabecalho {
+    font-size: 0.8em;
+
+    & h1, & h2 {
+      margin-bottom: 0.25em;
+    }
+  }
+
+  #info {
+    font-size: 0.8em;
+  }
+}
