@@ -1,0 +1,101 @@
+#controles ul {
+  list-style-type: none;
+  padding: 0;
+  transform: translateX(-80%);
+}
+
+#controles ul:hover {
+  transform: translateX(0);
+}
+
+/* Exercício 1: Criar uma transição para quando o mouse estiver em cima dos
+ * botões play/stop (para que o elemento se revele lentamente)
+ */
+#controles ul {
+  transition: ease-in 300ms;
+}
+
+/*
+ * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
+ * estados dos animais. Algumas *sugestões*:
+ *   - com-fome: animal piscando (opacidade variando)
+ *   - satisfeito: uma borda verde no animal e o animal fica girando de alegria
+ *   - foi-incomodado: animal fica pulsando (grande/pequeno) e com uma borda
+ *   - atacando: animal dá um salto e cresce, com uma borda vermelha
+ *
+ * O tempo que um animal fica em cada situação é:
+ *   - com-fome: pelo menos 4 segundos
+ *   - satisfeito: 1 segundo
+ *   - foi-incomodado: 1 segundo
+ *   - atacando: 1 segundo
+ */
+@keyframes piscando {
+  from {opacity: 0;}
+
+  to {opacity: 1;}
+}
+
+.com-fome {
+  position: relative;
+
+  animation: piscando 0.5s ease-in-out 0s infinite alternate;
+}
+
+@keyframes balancando {
+  from{transform: rotate(20deg);}
+
+  to{transform: rotate(-20deg);}
+}
+
+.satisfeito {
+  position: relative;
+
+  animation: balancando 0.5s ease-in-out 0s infinite alternate;
+
+  border: solid green 10px;
+}
+
+@keyframes pulsando {
+  from{transform: translateZ(100px);}
+  
+  to{transform: translateZ(-100px);}
+}
+
+.foi-incomodado {
+  position: relative;
+
+  animation: pulsando 0.4s ease-in-out 0s infinite alternate;
+
+  border: solid 10px gold;
+}
+
+@keyframes pulo {
+  from{transform: translateZ(0px);}
+
+  to{transform: translateZ(400px);}
+}
+
+@keyframes girando {
+  from{transform: rotateY(0deg);}
+
+  to{transform: rotateY(3600deg);}
+}
+
+.atacando {
+  position: relative;
+
+  animation: pulo 0.4s ease-out 0s 1 alternate,
+
+  girando 1s ease-in 0.4s 1 alternate;
+
+  border: solid red 10px;
+}
+
+
+/* Desafio 2: para efeito 3D, precisa
+ * configurar o perspective do pai do .animal 
+ *
+ */
+.container-animal {
+  perspective: 500px;
+}
